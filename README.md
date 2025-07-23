@@ -14,7 +14,7 @@
 4. | Supabase CLI | v2.31.8 or higher | macOS & Linux (Homebrew): `brew install supabase/tap/supabase`  ·  Windows: `scoop install supabase` |
 ## Quick Start (dev)
 ### 1. Clone & enter the project
-- Clone the repo with `git clone https://github.com/yourname/vimtype.git`
+- Clone the repo with `git clone https://github.com/FosterHoulston/vimtype.git`
 - Navigate into the new local project with `cd vimtype` 
 ### 2. Install JS dependencies
 - Use `npm install`
