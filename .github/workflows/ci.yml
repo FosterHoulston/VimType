@@ -20,7 +20,7 @@ jobs:
     steps:
       # GitHub checkout repository
       - uses: actions/checkout@v4
-        
+
       # Chache & set up Node tool-chain
       - uses: actions/setup-node@v4
         with:

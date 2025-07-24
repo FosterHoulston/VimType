@@ -11,7 +11,7 @@ export default [
   /* Browser environment so 'window', 'document', etc. are defined */
   {
     languageOptions: {
-      globals: { ...globals.browser }
+      globals: { ...globals.browser },
     },
   },
 
@@ -26,12 +26,8 @@ export default [
     rules: {
       /* Ignore Vite asset imports like '/vite.svg' */
       'import/no-unresolved': [
-	'error',
-	{ ignore: [
-	    '^/vite\\.svg$',
-	    '^\\.\\/javascript\\.svg$',
-	  ]
-	},
+        'error',
+        { ignore: ['^/vite\\.svg$', '^\\.\\/javascript\\.svg$'] },
       ],
     },
   },
