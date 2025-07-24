@@ -24,7 +24,6 @@ export default [
   {
     plugins: { import: importPlugin },
     rules: {
-      'import/no-unresolved': 'error',
       /* Ignore Vite asset imports like '/vite.svg' */
       'import/no-unresolved': [
 	'error',
