@@ -1,0 +1,60 @@
+name: CI
+
+# When to run the workflow
+on: [push, pull_request]
+
+# Default permissions
+permissions:
+  contents: read
+
+# Workflow jobs
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    strategy:
+      matrix:
+        node-version: [20]
+
+    steps:
+      # GitHub checkout repository
+      - uses: actions/checkout@v4
+
+      # Chache & set up Node tool-chain
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # ---- FAIL FAST GUARDRAILS ----
+      - name: Lint code (ESLint)
+        run: npm run lint
+      - name: Check formatting (Prettier)
+        run: npm run format:check
+
+      # ---- ONLY REACHES HERE IF CLEAN ----
+      # Install Supabase CLI
+      - name: Install Supabase CLI
+        uses: supabase/setup-cli@v1
+
+      # Start a Postgres database
+      - name: Start minimal Supabase DB (foreground)
+        run: supabase db start
+
+      # Run Vitest once (CI mode) with coverage
+      - name: Unit tests (Vitest)
+        run: npx vitest run --coverage
+
+      # Build production bundle with Vite
+      - name: Build project (Vite)
+        run: npm run build
+
+      # Upload build artefacts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
+          path: dist
