@@ -45,10 +45,6 @@ jobs:
       - name: Start minimal Supabase DB (foreground)
         run: supabase db start
 
-      # Wait until DB is accepting TCP connections
-      - name: Wait for Supabase to be ready
-        run: npx wait-on tcp:localhost:54322
-
       # Run Vitest once (CI mode) with coverage
       - name: Unit tests (Vitest)
         run: npx vitest run --coverage
