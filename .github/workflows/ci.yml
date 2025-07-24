@@ -41,13 +41,9 @@ jobs:
       - name: Install Supabase CLI
         uses: supabase/setup-cli@v1
 
-      # Boot a local Supabase stack for tests (uncomment after diagnostics)
-      # - name: Start Supabase (headless)
-      #   run: supabase start --exclude studio,postgrest &
-
-      # Debug run: comment-in for one commit to inspect logs
-      - name: Start Supabase (foreground for debugging)
-        run: supabase start --include db,auth
+      # Start a Postgres database
+      - name: Start minimal Supabase DB (foreground)
+        run: supabase db start
 
       # Wait until DB is accepting TCP connections
       - name: Wait for Supabase to be ready
