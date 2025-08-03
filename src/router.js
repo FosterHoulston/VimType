@@ -1,9 +1,9 @@
 const routes = {
-  '/': () => import('./pages/home-page.js'),
+  '/': () => import('./components/layout.js'),
   '/game': () => import('./pages/game-page.js'),
   '/game-over': () => import('./pages/game-over-page.js'),
   '/code-details': () => import('./pages/code-block-details-page.js'),
-  '/progress': () => import('./pages/progress-page.js'),
+  '/profile': () => import('./pages/profile-page.js'),
 };
 
 const outlet = document.getElementById('app');

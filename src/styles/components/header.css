@@ -1,0 +1,21 @@
+.siteHeader {
+  .mainCntr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    border: solid red;
+
+    .logo {
+      display: flex;
+
+      .logoFirst {
+        color: var(--color-accent);
+      }
+
+      .logoSecond {
+        color: var(--color-surface);
+      }
+    }
+  }
+}
