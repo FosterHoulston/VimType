@@ -1,0 +1,23 @@
+.siteFooter {
+  .mainCntr {
+    color: var(--color-text);
+    font-weight: 500;
+
+    .keyShortcutsCntr {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .keyShortcutCntr {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .keyCntr {
+          background: red;
+          color: var(--color-bg);
+        }
+      }
+    }
+  }
+}

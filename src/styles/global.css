@@ -1,0 +1,46 @@
+/* ---------- Reset / Baseline ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: system-ui; /* change/add to later */
+  line-height: 1.5;
+  background: var(--color-bg, #202120); /* change once color palette added */
+  color: var(--color-surface, #bebebe); /* change once color palette added */
+}
+
+/* Remove link underline and color */
+a {
+  color: var(--color-surface, #bebebe); /* change once color palette added */
+  text-decoration: none;
+}
+a:hover,
+a:focus-visible {
+  text-decoration: none;
+  color: var(--color-highlight, #ffffff);
+}
+
+/* Format media */
+img,
+svg,
+canvas,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Design Tokens ---------- */
+:root {
+  --color-bg: #1b1b1d;
+  --color-surface: #fff;
+  --color-text: #454646;
+  --color-accent: green;
+  --color-error: #800080;
+}
